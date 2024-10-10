@@ -1,3 +1,10 @@
+const gridContainer = document.querySelector('.grids');
+const grids = document.querySelectorAll(".grids .grid");
+const resultP = document.querySelector('.game-results');
+const playersLis = document.querySelectorAll('.players .player');
+const addNameBtn = document.querySelector('button');
+
+
 let innitialBoard = [
   ['','',''],
   ['','',''],
@@ -71,3 +78,15 @@ function isArrayFull(board) {
   }
   return true; // no empty cell was found
 }
+
+
+let updateDiv = (player, divs) => {
+  divs.forEach(div => {
+    div.addEventListener("click", () => {
+      if (div.className !== 'grid') return;
+      div.textContent = player;
+    })
+  });
+}
+
+updateDiv('c',grids);
