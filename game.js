@@ -22,3 +22,15 @@ const currentPlayer = () => {
   return { players, active , activePlayer };
   
 }
+
+
+const playRound = (activePlayer, row, col) => {
+
+  if (innitialBoard[row][col] !== '') {
+    return;
+}
+innitialBoard[row][col] = activePlayer.marker;
+switchRounds(activePlayer);
+return innitialBoard;
+
+}
