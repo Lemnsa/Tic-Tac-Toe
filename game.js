@@ -41,3 +41,20 @@ const switchRounds = (currentPlayer) => {
   return (currentPlayer.marker === 'o') ? playerTwo :  playerOne;
    
 }
+
+
+const checkWinner = (board, playerMarker) => {
+  for (let combination of winningCombinnations) {
+    let win = true;
+    for (let [row, col] of combination) {
+      if(board[row][col] !== playerMarker) {
+        win = false;
+        break;
+      }
+    }
+    if(win) {
+      return `player with ${playerMarker} won`;
+    }
+  }
+  return false;
+}
