@@ -34,3 +34,10 @@ switchRounds(activePlayer);
 return innitialBoard;
 
 }
+
+
+const switchRounds = (currentPlayer) => {
+
+  return (currentPlayer.marker === 'o') ? playerTwo :  playerOne;
+   
+}
