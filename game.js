@@ -58,3 +58,16 @@ const checkWinner = (board, playerMarker) => {
   }
   return false;
 }
+
+
+
+function isArrayFull(board) {
+  for (let row; row < board.length; row++) {
+    for (let col; col < board[row].length; col++) {
+      if(board[row][col] === '') {
+        return false;
+      }
+    }
+  }
+  return true; // no empty cell was found
+}
