@@ -65,11 +65,3 @@ ul {
     font-style: italic;
   }
 
-.winning {
-  text-decoration: line-through;
-}
-
-.draw {
-  background: gray;
-}
-
