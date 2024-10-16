@@ -67,22 +67,6 @@ function isArrayFull(board) {
 }
 
 
-// let updateDiv = (player, divs) => {
-//   divs.forEach(div => {
-      
-//       div.addEventListener("click", () => {
-//         switchRounds(currentPlayer().activePlayer);
-//         if (!isArrayFull(innitialBoard)) {
-//           if (div.className !== 'grid') return;
-//         div.textContent = player;
-//         }
-       
-//       })
-//       return div;
-// })
-// }
-
-
 let updateDiv = (player, initialBoard) => {
   initialBoard.forEach((div, index) => {
     div.addEventListener("click", (e) => {
@@ -91,13 +75,12 @@ let updateDiv = (player, initialBoard) => {
       initialBoard[index].textContent = player.marker;
         if(checkWinner(player.marker)) {
             resultP.textContent=`Game over! ${player.marker} wins!`;
-            restartGame(initialBoard);
-            return;
+            return restartGame(initialBoard);
         }
 
         if(isArrayFull(initialBoard)) {
           resultP.textContent= `Game is tied!`;
-          return;
+          return restartGame(initialBoard);
       }
 
       let activeDiv = e.target;
@@ -106,10 +89,8 @@ let updateDiv = (player, initialBoard) => {
       }
       return activeDiv;
     })
-})
 
-  const winner = checkWinner(player.marker);
-  console.log(winner);
+})
 
 }
 updateDiv(playerOne,innitialBoard)
@@ -119,6 +100,4 @@ function restartGame(board) {
   for(let i = 0; i < board.length; i++) {
       board[i].textContent = "";
   }
-  resultP.textContent=`${currentPlayer().activePlayer.marker}'s turn!`
-  // currentPlayer = players[0]
 }
