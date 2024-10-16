@@ -36,8 +36,8 @@ addNameBtn.addEventListener('click', () => {
   const names = document.querySelectorAll('.players .player');
   const namesToArray = [...names];
 
-  namesToArray[0].textContent = `Player One: ${playerOne.name}`;
-  namesToArray[1].textContent = `Player Two: ${playerTwo.name}`;
+  namesToArray[0].textContent = `Player Two: ${playerOne.name}, ${playerOne.marker}`;
+  namesToArray[1].textContent = `Player One: ${playerTwo.name}, ${playerTwo.marker}`;
 })
 
 
@@ -91,13 +91,13 @@ let updateDiv = (player, initialBoard) => {
       initialBoard[index].textContent = player.marker;
         if(checkWinner(player.marker)) {
             resultP.textContent=`Game over! ${player.name} wins!`;
-            container.setAttribute('class', 'winning');
+            // container.setAttribute('class', 'winning');
             return restartGame(initialBoard);
         }
 
         if(isArrayFull(initialBoard)) {
           resultP.textContent= `Game is tied!`;
-          container.setAttribute("class", "draw");
+          // container.setAttribute("class", "draw");
           return restartGame(initialBoard);
       }
 
