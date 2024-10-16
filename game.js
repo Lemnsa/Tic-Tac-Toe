@@ -18,14 +18,29 @@ const winningCombinations = [
   [2, 4, 6]
 ]
 
-console.log(innitialBoard)
-
 const makePlayer = (name, marker) => {
    return { name, marker };
 }
 
-const playerOne = makePlayer('jogger', 'o');
-const playerTwo = makePlayer('lansa', 'x');
+const playerOne = makePlayer('one', 'o');
+const playerTwo = makePlayer('two', 'x');
+
+addNameBtn.addEventListener('click', () => {
+  const playerOneName = prompt("Enter Player One's Name");
+  const playerTwoName = prompt("Enter Player Two's Name");
+
+  playerOne.name = playerOneName;
+  playerTwo.name = playerTwoName;
+
+  const names = document.querySelectorAll('.players .player');
+  const namesToArray = [...names];
+
+  namesToArray[0].textContent = `Player One: ${playerOne.name}`;
+  namesToArray[1].textContent = `Player Two: ${playerTwo.name}`;
+})
+
+
+
 
 
 const currentPlayer = () => {
@@ -74,7 +89,7 @@ let updateDiv = (player, initialBoard) => {
 
       initialBoard[index].textContent = player.marker;
         if(checkWinner(player.marker)) {
-            resultP.textContent=`Game over! ${player.marker} wins!`;
+            resultP.textContent=`Game over! ${player.name} wins!`;
             return restartGame(initialBoard);
         }
 
