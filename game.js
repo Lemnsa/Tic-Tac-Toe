@@ -27,8 +27,8 @@ const playerOne = makePlayer('one', 'o');
 const playerTwo = makePlayer('two', 'x');
 
 addNameBtn.addEventListener('click', () => {
-  const playerOneName = prompt("Enter Player One's Name");
-  const playerTwoName = prompt("Enter Player Two's Name");
+  const playerOneName = prompt("Enter Player Two's Name");
+  const playerTwoName = prompt("Enter Player One's Name");
 
   playerOne.name = playerOneName;
   playerTwo.name = playerTwoName;
