@@ -3,6 +3,7 @@ const grids = document.querySelectorAll(".grids .grid");
 const resultP = document.querySelector('.game-results');
 const playersLis = document.querySelectorAll('.players .player');
 const addNameBtn = document.querySelector('button');
+const container = document.getElementById("container");
 
 
 let innitialBoard = [...grids];
@@ -90,11 +91,13 @@ let updateDiv = (player, initialBoard) => {
       initialBoard[index].textContent = player.marker;
         if(checkWinner(player.marker)) {
             resultP.textContent=`Game over! ${player.name} wins!`;
+            container.setAttribute('class', 'winning');
             return restartGame(initialBoard);
         }
 
         if(isArrayFull(initialBoard)) {
           resultP.textContent= `Game is tied!`;
+          container.setAttribute("class", "draw");
           return restartGame(initialBoard);
       }
 
